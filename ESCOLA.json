@@ -4,3 +4,63 @@ CREATE TABLE ALUNO (
     EMAIL VARCHAR(255),    -- Atributo e-mail do tipo varchar
     ENDERECO VARCHAR(255)  -- Atributo endereço do tipo varchar
 );
+CREATE TABLE ALUNO (
+    ID INT PRIMARY KEY,
+    NOME VARCHAR(255),
+    MATRICULA VARCHAR(255),
+    EMAIL VARCHAR(255),
+    ENDERECO VARCHAR(255),
+    TELEFONE VARCHAR(255)
+);
+
+INSERT INTO ALUNO (ID, NOME, MATRICULA, EMAIL, ENDERECO, TELEFONE) VALUES
+(1, 'João Carlos', '1234', 'Jcarlos@gmail.com', 'Rua 13 de maio', '(11)7825-4489'),
+(2, 'José Vítor', '2345', 'Jvitor@gmail.com', 'Rua da Saudade', '(11)7825-6589'),
+(3, 'Paulo André', '3456', 'Pandr@gmail.com', 'Rua do Sol', '(11)7825-4495');
+
+CREATE TABLE EMPRESTIMO (
+    CODIGO INT PRIMARY KEY,
+    DATA_HORA VARCHAR(255),
+    MATRIC_ALUNO VARCHAR(255),
+    DATA_DEVOLUCAO VARCHAR(255)
+);
+
+INSERT INTO EMPRESTIMO (CODIGO, DATA_HORA, MATRIC_ALUNO, DATA_DEVOLUCAO) VALUES
+(1, '12/03/2022 15:25', '1234', '15/03/2022'),
+(2, '15/03/2022 14:32', '3456', '18/03/2022'),
+(3, '20/03/2022 03:51', '2345', '23/03/2022');
+
+CREATE TABLE LIVRO_EMPRESTIMO (
+    COD_LIVRO INT,
+    COD_EMPRESTIMO INT,
+    PRIMARY KEY (COD_LIVRO, COD_EMPRESTIMO)
+);
+
+INSERT INTO LIVRO_EMPRESTIMO (COD_LIVRO, COD_EMPRESTIMO) VALUES
+(3, 1),
+(1, 3),
+(2, 2);
+CREATE TABLE LIVRO (
+    COD_LIVRO INT PRIMARY KEY,
+    TITULO VARCHAR(255),
+    AUTOR VARCHAR(255),
+    COD_SESSAO INT
+);
+
+INSERT INTO LIVRO (COD_LIVRO, TITULO, AUTOR, COD_SESSAO) VALUES
+(1, 'Modelo Conceitual e Diagramas ER', 'Pressman, Roger S.', 3),
+(2, 'Livro 2: Modelo Relacional e Álgebra Relacional', 'Heuser, Carlos Alberto', 1),
+(3, 'Livro 3: Linguagem SQL', 'Beighley, Lynn', 2);
+
+CREATE TABLE SESSAO (
+    CODIGO INT PRIMARY KEY,
+    DESCRICAO VARCHAR(255),
+    LOCALIZACAO VARCHAR(255)
+);
+
+INSERT INTO SESSAO (CODIGO, DESCRICAO, LOCALIZACAO) VALUES
+(1, 'Sessao1', 'Partilheira1'),
+(2, 'Sessao2', 'Partilheira2'),
+(3, 'Sessao3', 'Partilheira3');
+
+sqlite3 ESCOLA.db
