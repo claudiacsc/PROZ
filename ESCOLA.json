@@ -1,1 +1,6 @@
-[]
+CREATE TABLE ALUNO (
+    ID INT PRIMARY KEY,    -- Chave primária do tipo inteiro
+    NOME VARCHAR(255),     -- Atributo nome do tipo varchar
+    EMAIL VARCHAR(255),    -- Atributo e-mail do tipo varchar
+    ENDERECO VARCHAR(255)  -- Atributo endereço do tipo varchar
+);
